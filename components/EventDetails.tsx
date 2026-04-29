@@ -46,7 +46,7 @@ export default function EventDetails() {
               >
                 <div className="pt-6 px-6 pb-6 flex flex-col items-center text-center">
                   <Icon className="h-8 w-8 text-gold mb-3" />
-                  <p className="font-display text-sm uppercase tracking-widest text-white/70 mb-2">
+                  <p className="font-body font-normal text-sm uppercase tracking-widest text-[#FFFFFF99] mb-2">
                     {item.label}
                   </p>
                   {item.isAddress ? (
