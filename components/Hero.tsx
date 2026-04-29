@@ -27,7 +27,7 @@ export default function Hero() {
           <Star className="h-5 w-5 text-gold fill-current" />
         </div>
         <h1 className="font-display font-black text-white leading-[0.95] mb-6">
-          <span className="block font-display text-[60px] leading-none text-[#C91D1D] mb-4">
+          <span className="block font-display text-4xl sm:text-5xl md:text-[60px] leading-none text-[#C91D1D] mb-4">
             Meadowmoore Boom
           </span>
           <span className="block text-6xl md:text-8xl lg:text-9xl">
