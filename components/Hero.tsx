@@ -2,8 +2,6 @@ import Fireworks from "./Fireworks";
 import Countdown from "./Countdown";
 import { Heart, Star } from "lucide-react";
 
-const GOFUNDME_URL = "https://www.gofundme.com/placeholder";
-
 const STAR_BG = `radial-gradient(1px 1px at 20% 30%, white 50%, transparent 50%),
   radial-gradient(1px 1px at 40% 70%, white 50%, transparent 50%),
   radial-gradient(1px 1px at 60% 20%, white 50%, transparent 50%),
@@ -56,7 +54,7 @@ export default function Hero() {
               Event Details
             </button>
           </a>
-          <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
+          <a href="#funding">
             <button className="inline-flex items-center gap-2 rounded-full bg-gold hover:bg-gold/90 text-navy font-body text-lg px-8 h-12 uppercase tracking-wider font-bold transition-colors">
               <Heart className="h-5 w-5" />
               Help Fund the Fireworks
