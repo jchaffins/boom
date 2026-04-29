@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "What if rain is forecasted?",
-    a: "The date of our show might have to be adjusted based on conditions — check back here for updates.",
+    a: "If rain is forecasted, the event may be moved to Friday, June 26 and will be communicated out on website and group text if needed.",
   },
   {
     q: "Can I bring my dog?",

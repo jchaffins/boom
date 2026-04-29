@@ -12,7 +12,7 @@ const items: Item[] = [
   {
     time: "7:00 PM",
     title: "Music & Games",
-    desc: "Volleyball, cornhole, horseshoes & tunes",
+    desc: "Corn hole, volleyball, can jam, tunes, and more",
     icon: Music,
   },
   {
@@ -23,7 +23,7 @@ const items: Item[] = [
   },
   {
     time: "9:45 PM",
-    title: "The Big Show 🎆",
+    title: "The Big Show",
     desc: "The main event — sit back and enjoy!",
     icon: Sparkles,
   },
