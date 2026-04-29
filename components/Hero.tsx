@@ -1,6 +1,6 @@
 import Fireworks from "./Fireworks";
 import Countdown from "./Countdown";
-import { Heart } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 
 const GOFUNDME_URL = "https://www.gofundme.com/placeholder";
 
@@ -23,8 +23,13 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-12 pb-16">
+        <div className="flex justify-center items-center gap-3 mb-6">
+          <Star className="h-5 w-5 text-gold fill-current" />
+          <Star className="h-5 w-5 text-gold fill-current" />
+          <Star className="h-5 w-5 text-gold fill-current" />
+        </div>
         <h1 className="font-display font-black text-white leading-[0.95] mb-6">
-          <span className="block text-lg md:text-xl uppercase tracking-[0.4em] text-white/60 mb-4 font-body font-light">
+          <span className="block font-display text-[60px] leading-none text-[#C91D1D] mb-4">
             Meadowmoore Boom
           </span>
           <span className="block text-6xl md:text-8xl lg:text-9xl">
@@ -54,7 +59,7 @@ export default function Hero() {
           <a href={GOFUNDME_URL} target="_blank" rel="noopener noreferrer">
             <button className="inline-flex items-center gap-2 rounded-full bg-gold hover:bg-gold/90 text-navy font-body text-lg px-8 h-12 uppercase tracking-wider font-bold transition-colors">
               <Heart className="h-5 w-5" />
-              Help Fund the Fireworks 🎆
+              Help Fund the Fireworks
             </button>
           </a>
         </div>
