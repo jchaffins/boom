@@ -21,7 +21,7 @@ const amounts: { label: string; href: string }[] = [
   { label: "$50", href: venmoLink(50) },
   { label: "$100", href: venmoLink(100) },
   { label: "$150", href: venmoLink(150) },
-  { label: "or more", href: venmoLink() },
+  { label: "$200", href: venmoLink(200) },
 ];
 
 const fmtMoney = (n: number) =>
