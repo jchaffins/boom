@@ -135,6 +135,11 @@ export default async function Funding() {
               Donate on Venmo
             </button>
           </a>
+
+          <p className="font-body text-sm text-white/70 mt-6 max-w-md mx-auto">
+            Those who donate $150 or more will receive special video
+            recognition on the 20ft big screen.
+          </p>
         </div>
       </div>
     </section>

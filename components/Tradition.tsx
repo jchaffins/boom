@@ -3,11 +3,18 @@ export default function Tradition() {
     <section className="py-16 px-4">
       <div className="max-w-3xl mx-auto">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
-          What to Expect
+          What to Expect in This Year&rsquo;s Show!
         </h2>
 
         <ul className="font-body text-lg text-muted-foreground leading-relaxed space-y-3 list-disc pl-6 mb-8">
-          <li>A spectacular fireworks show set to music</li>
+          <li>
+            20ft outdoor movie screen paying a special tribute to our first
+            responders and military. As well as a memoriam to friends and
+            family who have passed.
+          </li>
+          <li>
+            A spectacular fireworks show set to music...aka a Pyromusical!!
+          </li>
           <li>
             An original American flag that flew over Congress in 1965, featured
             during Johnny Cash&apos;s spoken word song &ldquo;Ragged Old
@@ -29,6 +36,17 @@ export default function Tradition() {
           </li>
           <li>
             Family-friendly, though things can get a little wild after the show
+          </li>
+          <li>
+            If you or any of your guests are current or former first responders
+            or military veterans, please let Bill know asap at{" "}
+            <a
+              href="tel:+16148677437"
+              className="text-primary font-bold underline underline-offset-2 hover:text-secondary transition-colors"
+            >
+              614-867-7437
+            </a>{" "}
+            so we can recognize and thank them during the show.
           </li>
         </ul>
 

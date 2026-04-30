@@ -24,10 +24,6 @@ const faqs = [
     q: "What if rain is forecasted?",
     a: "If rain is forecasted, the event may be moved to Friday, June 26 and will be communicated out on website and group text if needed.",
   },
-  {
-    q: "Can I bring my dog?",
-    a: "We love dogs, but loud fireworks can scare them. We recommend leaving furry friends at home for their comfort.",
-  },
 ];
 
 export default function FAQ() {
