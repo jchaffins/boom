@@ -33,7 +33,7 @@ export default function Hero() {
           <span className="block text-6xl md:text-8xl lg:text-9xl">
             Ragged Old Flag
           </span>
-          <span className="block text-6xl md:text-8xl text-gold lg:text-8xl">
+          <span className="block text-5xl sm:text-6xl md:text-7xl text-gold mt-4 md:mt-6">
             The Pyromusical
           </span>
         </h1>

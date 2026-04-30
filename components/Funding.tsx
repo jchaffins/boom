@@ -1,4 +1,5 @@
-import { Sparkles, Music, UtensilsCrossed, Shield, Heart } from "lucide-react";
+import { Sparkles, Music, UtensilsCrossed, Heart } from "lucide-react";
+import { getDonationTotals, FUNDING_GOAL } from "@/lib/donations";
 
 const VENMO_USERNAME = "billbeck614";
 
@@ -13,8 +14,7 @@ const venmoLink = (amount?: number) => {
 const costs = [
   { icon: Sparkles, label: "Fireworks" },
   { icon: Music, label: "Entertainment" },
-  { icon: UtensilsCrossed, label: "Food and beverages for guests" },
-  { icon: Shield, label: "Event setup, safety measures, and logistics" },
+  { icon: UtensilsCrossed, label: "Food and beverages" },
 ];
 
 const amounts: { label: string; href: string }[] = [
@@ -24,17 +24,48 @@ const amounts: { label: string; href: string }[] = [
   { label: "or more", href: venmoLink() },
 ];
 
-export default function Funding() {
+const fmtMoney = (n: number) =>
+  `$${Math.round(n).toLocaleString("en-US")}`;
+
+export default async function Funding() {
+  const { raised } = await getDonationTotals();
+  const pct = Math.min(100, Math.round((raised / FUNDING_GOAL) * 100));
+
   return (
-    <section id="funding" className="py-20 px-4 bg-primary text-primary-foreground">
+    <section
+      id="funding"
+      className="py-20 px-4 bg-primary text-primary-foreground"
+    >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <p className="font-display font-bold text-[36px] mb-3">
-            Our Goal
-          </p>
+          <p className="font-display font-bold text-[36px] mb-3">Our Goal</p>
           <p className="font-display font-black text-7xl md:text-8xl text-gold leading-none">
-            $6,000
+            $6,500
           </p>
+
+          <div className="max-w-md mx-auto mt-10">
+            <div className="flex justify-between items-baseline mb-2">
+              <span className="font-display text-2xl md:text-3xl font-bold text-gold">
+                {fmtMoney(raised)} raised
+              </span>
+              <span className="font-body text-sm text-white/60">
+                {pct}% of goal
+              </span>
+            </div>
+            <div
+              className="h-4 rounded-full bg-white/10 overflow-hidden"
+              role="progressbar"
+              aria-valuenow={pct}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label={`${pct}% of $${FUNDING_GOAL} goal raised`}
+            >
+              <div
+                className="h-full bg-gold rounded-full transition-all"
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 mb-12">
@@ -43,7 +74,7 @@ export default function Funding() {
               Where your money goes
             </h3>
             <p className="font-body text-white/70 mb-5">
-              We&rsquo;re raising $6,000 to help cover the costs of:
+              We&rsquo;re raising $6,500 to help cover the costs of:
             </p>
             <ul className="space-y-3">
               {costs.map(({ icon: Icon, label }) => (
