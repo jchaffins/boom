@@ -13,9 +13,9 @@ export default function Tradition() {
             family who have passed.
           </li>
           <li>
-            An original American flag that flew over Congress in 1965, featured
-            during Johnny Cash&apos;s spoken word song &ldquo;Ragged Old
-            Flag&rdquo;
+            We will feature an original American flag that flew over Congress
+            in 1965, featured during Johnny Cash&apos;s spoken word song
+            &ldquo;Ragged Old Flag&rdquo;
           </li>
           <li>
             A spectacular fireworks show set to music...aka a Pyromusical!!
