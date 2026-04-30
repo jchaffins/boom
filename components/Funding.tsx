@@ -38,6 +38,15 @@ export default async function Funding() {
     >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
+          <p className="font-body text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Hi everyone! This is Juliet and Steph (Bill&rsquo;s sister and
+            cousin). This event is a true labor of love, and we&rsquo;re so
+            glad you&rsquo;re here to enjoy it. Putting this on takes a
+            surprising amount of time, effort&hellip; and let&rsquo;s be
+            honest, expensive explosives. If you&rsquo;d like to contribute
+            toward the fireworks, food, and festivities, we&rsquo;d be
+            incredibly grateful!
+          </p>
           <p className="font-display font-bold text-[36px] mb-3">Our Goal</p>
           <p className="font-display font-black text-7xl md:text-8xl text-gold leading-none">
             $6,500
