@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "What should I bring?",
-    a: "Lawn chairs, blankets, and your appetite! We provide the food, drinks, and entertainment.",
+    a: "Lawn chairs, blankets, and your appetite! We provide the food, Margarita Man frozen cocktails, and entertainment. BYOB if you want something different.",
   },
   {
     q: "Can I bring my own fireworks?",
