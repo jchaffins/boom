@@ -175,7 +175,7 @@ export default async function Funding() {
           </h3>
           <p className="font-body text-white/70 mb-4">
             Events like this take a lot of coordination and resources, and we
-            want to keep it accessible and enjoyable for the whole community.
+            want to keep it accessible and enjoyable for our friends and neighbors.
             Your support helps us make this celebration truly special.
           </p>
           <p className="font-body text-white/70">
