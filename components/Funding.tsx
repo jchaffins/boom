@@ -1,7 +1,12 @@
 import { Sparkles, Music, UtensilsCrossed, Heart } from "lucide-react";
-import { getDonationTotals, FUNDING_GOAL } from "@/lib/donations";
+import {
+  getDonationTotals,
+  FUNDING_GOAL,
+  type Donor,
+} from "@/lib/donations";
 
 const VENMO_USERNAME = "billbeck614";
+const SCROLL_THRESHOLD = 8;
 
 const venmoLink = (amount?: number) => {
   const base = `https://venmo.com/${VENMO_USERNAME}`;
@@ -27,8 +32,60 @@ const amounts: { label: string; href: string }[] = [
 const fmtMoney = (n: number) =>
   `$${Math.round(n).toLocaleString("en-US")}`;
 
+function DonorList({ donors }: { donors: Donor[] }) {
+  if (donors.length === 0) {
+    return (
+      <div className="h-80 flex items-center justify-center bg-white/5 rounded-lg border border-white/10">
+        <p className="font-body text-white/50 text-sm">
+          Be the first to donate!
+        </p>
+      </div>
+    );
+  }
+
+  const isLong = donors.length > SCROLL_THRESHOLD;
+  const items = isLong ? [...donors, ...donors] : donors;
+
+  return (
+    <div className="relative h-80 bg-white/5 rounded-lg border border-white/10 overflow-hidden group">
+      <div
+        className={
+          isLong
+            ? "animate-marquee-y group-hover:[animation-play-state:paused]"
+            : ""
+        }
+        style={
+          isLong
+            ? { animationDuration: `${Math.max(20, donors.length * 2)}s` }
+            : undefined
+        }
+      >
+        {items.map((d, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-between px-4 py-2.5 border-b border-white/5"
+          >
+            <span className="font-body text-primary-foreground truncate pr-3">
+              {d.name}
+            </span>
+            <span className="font-body font-bold text-gold tabular-nums whitespace-nowrap">
+              {fmtMoney(d.amount)}
+            </span>
+          </div>
+        ))}
+      </div>
+      {isLong && (
+        <>
+          <div className="absolute top-0 left-0 right-0 h-5 bg-gradient-to-b from-primary to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-5 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
+        </>
+      )}
+    </div>
+  );
+}
+
 export default async function Funding() {
-  const { raised } = await getDonationTotals();
+  const { raised, donors } = await getDonationTotals();
   const pct = Math.min(100, Math.round((raised / FUNDING_GOAL) * 100));
 
   return (
@@ -106,18 +163,25 @@ export default async function Funding() {
 
           <div>
             <h3 className="font-display text-2xl font-bold mb-5">
-              Why we need your help
+              Thank you to our donors!
             </h3>
-            <p className="font-body text-white/70 mb-4">
-              Events like this take a lot of coordination and resources, and we
-              want to keep it accessible and enjoyable for the whole community.
-              Your support helps us make this celebration truly special.
-            </p>
-            <p className="font-body text-white/70">
-              Whether you can give $50, $100, $150 or more, every contribution
-              makes a difference.
-            </p>
+            <DonorList donors={donors} />
           </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <h3 className="font-display text-2xl font-bold mb-5">
+            Why we need your help
+          </h3>
+          <p className="font-body text-white/70 mb-4">
+            Events like this take a lot of coordination and resources, and we
+            want to keep it accessible and enjoyable for the whole community.
+            Your support helps us make this celebration truly special.
+          </p>
+          <p className="font-body text-white/70">
+            Whether you can give $50, $100, $150 or more, every contribution
+            makes a difference.
+          </p>
         </div>
 
         <div className="text-center">

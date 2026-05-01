@@ -59,6 +59,13 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "marquee-y": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
+      },
+      animation: {
+        "marquee-y": "marquee-y 40s linear infinite",
       },
     },
   },

@@ -52,25 +52,27 @@ function parseAmount(s: string | undefined): number {
   return Number.isFinite(n) && n > 0 ? n : 0;
 }
 
-export type DonationTotals = { raised: number; donorCount: number };
+export type Donor = { name: string; amount: number };
+export type DonationData = { raised: number; donors: Donor[] };
 
-export async function getDonationTotals(): Promise<DonationTotals> {
+export async function getDonationTotals(): Promise<DonationData> {
   try {
     const res = await fetch(SHEET_URL, { next: { revalidate: 300 } });
-    if (!res.ok) return { raised: 0, donorCount: 0 };
+    if (!res.ok) return { raised: 0, donors: [] };
     const text = await res.text();
     const rows = parseCSV(text);
     let raised = 0;
-    let donorCount = 0;
+    const donors: Donor[] = [];
     for (let i = 1; i < rows.length; i++) {
+      const name = (rows[i][1] ?? "").trim();
       const amount = parseAmount(rows[i][2]);
-      if (amount > 0) {
+      if (amount > 0 && name) {
         raised += amount;
-        donorCount++;
+        donors.push({ name, amount });
       }
     }
-    return { raised, donorCount };
+    return { raised, donors };
   } catch {
-    return { raised: 0, donorCount: 0 };
+    return { raised: 0, donors: [] };
   }
 }
