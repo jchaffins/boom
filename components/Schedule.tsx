@@ -1,4 +1,11 @@
-import { Users, Music, UtensilsCrossed, Sparkles, type LucideIcon } from "lucide-react";
+import {
+  Users,
+  Music,
+  UtensilsCrossed,
+  Shield,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 
 type Item = { time: string; title: string; desc: string; icon: LucideIcon };
 
@@ -20,6 +27,12 @@ const items: Item[] = [
     title: "BBQ is Served",
     desc: "Pulled pork BBQ sandwiches & Margarita Man frozen cocktails",
     icon: UtensilsCrossed,
+  },
+  {
+    time: "8:30 PM",
+    title: "Bagpipes Performance",
+    desc: "Live performance by the Columbus Police & Fire Bagpipes",
+    icon: Shield,
   },
   {
     time: "9:45 PM",

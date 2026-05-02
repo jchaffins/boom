@@ -1,6 +1,6 @@
 export default function Tradition() {
   return (
-    <section className="py-16 px-4">
+    <section className="pt-6 pb-16 px-4">
       <div className="max-w-3xl mx-auto">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
           What to Expect in This Year&rsquo;s Show!
@@ -13,9 +13,9 @@ export default function Tradition() {
             family who have passed.
           </li>
           <li>
-            We will feature an original American flag that flew over Congress
-            in 1965, featured during Johnny Cash&apos;s spoken word song
-            &ldquo;Ragged Old Flag&rdquo;
+            We will feature an American flag that flew over Congress in 1965,
+            during Johnny Cash&apos;s spoken word song &ldquo;Ragged Old
+            Flag&rdquo;
           </li>
           <li>
             A spectacular fireworks show set to music...aka a Pyromusical!!
@@ -39,7 +39,7 @@ export default function Tradition() {
           </li>
           <li>
             If you or any of your guests are current or former first responders
-            or military veterans, please let Bill know asap at{" "}
+            or military veterans, please let Bill know ASAP at{" "}
             <a
               href="tel:+16148677437"
               className="text-primary font-bold underline underline-offset-2 hover:text-secondary transition-colors"
