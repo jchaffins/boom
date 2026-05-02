@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Fireworks from "./Fireworks";
 import Countdown from "./Countdown";
 import { Heart, Star } from "lucide-react";
@@ -21,6 +22,16 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-12 pb-16">
+        <div className="flex justify-center mb-2 md:mb-3">
+          <Image
+            src="/ragged-old-flag.png"
+            alt="Ragged Old Flag with fireworks"
+            width={1024}
+            height={1024}
+            priority
+            className="w-40 sm:w-44 md:w-56 lg:w-64 h-auto mix-blend-screen"
+          />
+        </div>
         <div className="flex justify-center items-center gap-3 mb-6">
           <Star className="h-5 w-5 text-gold fill-current" />
           <Star className="h-5 w-5 text-gold fill-current" />
@@ -49,11 +60,6 @@ export default function Hero() {
         <Countdown />
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#details">
-            <button className="inline-flex items-center gap-2 rounded-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-body text-lg px-8 h-12 uppercase tracking-wider transition-colors">
-              Event Details
-            </button>
-          </a>
           <a href="#funding">
             <button className="inline-flex items-center gap-2 rounded-full bg-gold hover:bg-gold/90 text-navy font-body text-lg px-8 h-12 uppercase tracking-wider font-bold transition-colors">
               <Heart className="h-5 w-5" />
