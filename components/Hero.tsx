@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Fireworks from "./Fireworks";
 import Countdown from "./Countdown";
-import { Heart, Star } from "lucide-react";
+import { Heart } from "lucide-react";
 
 const STAR_BG = `radial-gradient(1px 1px at 20% 30%, white 50%, transparent 50%),
   radial-gradient(1px 1px at 40% 70%, white 50%, transparent 50%),
@@ -21,7 +21,7 @@ export default function Hero() {
         style={{ backgroundImage: STAR_BG, backgroundSize: "300px 300px" }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-12 pb-16">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-4 pb-16">
         <div className="flex justify-center mb-2 md:mb-3">
           <Image
             src="/ragged-old-flag.png"
@@ -31,11 +31,6 @@ export default function Hero() {
             priority
             className="w-40 sm:w-44 md:w-56 lg:w-64 h-auto mix-blend-screen"
           />
-        </div>
-        <div className="flex justify-center items-center gap-3 mb-6">
-          <Star className="h-5 w-5 text-gold fill-current" />
-          <Star className="h-5 w-5 text-gold fill-current" />
-          <Star className="h-5 w-5 text-gold fill-current" />
         </div>
         <h1 className="font-display font-black text-white leading-[0.95] mb-6">
           <span className="block font-display text-4xl sm:text-5xl md:text-[60px] leading-none text-[#C91D1D] mb-4">
