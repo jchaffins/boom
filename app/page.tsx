@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import NeedToKnow from "@/components/NeedToKnow";
 import Tradition from "@/components/Tradition";
 import EventDetails from "@/components/EventDetails";
 import Schedule from "@/components/Schedule";
@@ -11,6 +12,7 @@ export default function Page() {
   return (
     <main className="scroll-smooth">
       <Hero />
+      <NeedToKnow />
       <Tradition />
       <EventDetails />
       <Schedule />
