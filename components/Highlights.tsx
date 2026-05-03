@@ -1,6 +1,12 @@
 const videos = [
-  { id: "SraApjhUBBY", title: "Meadowmoore Boom Highlights" },
-  { id: "k5J8khrZ-14", title: "Meadowmoore Boom Highlights" },
+  "SraApjhUBBY",
+  "pn3_aGSvFdI",
+  "rWq_y8lOF84",
+  "vNAGfxLgSw0",
+  "ku3kBz9N-Bo",
+  "k5J8khrZ-14",
+  "093PgcAf3rc",
+  "YQZgu28Z2Lo",
 ];
 
 export default function Highlights() {
@@ -14,25 +20,20 @@ export default function Highlights() {
           Great memories from celebrations past
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {videos.map((v) => (
+          {videos.map((id) => (
             <div
-              key={v.id}
+              key={id}
               className="rounded-lg overflow-hidden border-4 border-card shadow-md bg-card"
             >
               <div className="aspect-video w-full">
                 <iframe
                   className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${v.id}`}
-                  title={v.title}
+                  src={`https://www.youtube.com/embed/${id}`}
+                  title="Meadowmoore Boom Highlights"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
-              </div>
-              <div className="p-3">
-                <span className="font-body text-sm font-bold text-foreground">
-                  {v.title}
-                </span>
               </div>
             </div>
           ))}
