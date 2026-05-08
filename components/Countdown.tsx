@@ -14,10 +14,13 @@ function compute() {
   };
 }
 
+const ZERO = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
 export default function Countdown() {
-  const [t, setT] = useState(compute);
+  const [t, setT] = useState(ZERO);
 
   useEffect(() => {
+    setT(compute());
     const id = setInterval(() => setT(compute()), 1000);
     return () => clearInterval(id);
   }, []);
