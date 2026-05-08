@@ -43,7 +43,7 @@ function DonorList({ donors }: { donors: Donor[] }) {
     );
   }
 
-  const isLong = donors.length > SCROLL_THRESHOLD;
+  const isLong = donors.length >= SCROLL_THRESHOLD;
   const items = isLong ? [...donors, ...donors] : donors;
 
   return (
