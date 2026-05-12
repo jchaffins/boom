@@ -1,7 +1,7 @@
 const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnpe99vNHWPGBBMVGLBnbTDFV8k2gMNyK82pcCLxYJRmfgiwZ59_fkgyPMcEFRh1-TkOuRUYWjXncg/pub?gid=0&single=true&output=csv";
 
-export const FUNDING_GOAL = 6500;
+export const FUNDING_GOAL = 6900;
 
 function parseCSV(text: string): string[][] {
   const rows: string[][] = [];
