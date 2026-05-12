@@ -106,7 +106,7 @@ export default async function Funding() {
           </p>
           <p className="font-display font-bold text-[36px] mb-3">Our Goal</p>
           <p className="font-display font-black text-7xl md:text-8xl text-gold leading-none">
-            $6,500
+            {fmtMoney(FUNDING_GOAL)}
           </p>
 
           <div className="max-w-md mx-auto mt-10">
@@ -140,7 +140,7 @@ export default async function Funding() {
               Where your money goes
             </h3>
             <p className="font-body text-white/70 mb-5">
-              We&rsquo;re raising $6,500 to help cover the costs of:
+              We&rsquo;re raising {fmtMoney(FUNDING_GOAL)} to help cover the costs of:
             </p>
             <ul className="space-y-3">
               {costs.map(({ icon: Icon, label }) => (
