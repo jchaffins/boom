@@ -47,13 +47,13 @@ Default to server components. Only the following are `"use client"` and they mus
 - `components/Countdown.tsx` — live `setInterval` countdown
 - `components/FAQ.tsx` — accordion state via `useState`
 
-`components/Funding.tsx` is an **async server component** that calls `getDonationTotals()` at build time. Do not convert it to a client component — that would force the sheet fetch into the browser and break the architecture below.
+`components/Funding.tsx` is an **async server component** that calls `getDonationTotals()` on every request (the page is dynamic — see below). Do not convert it to a client component — that would force the sheet fetch into the browser and break the architecture below.
 
 ### Donation data flow (the only non-trivial subsystem)
 
-- `lib/donations.ts` fetches a published Google Sheet CSV (`SHEET_URL` constant) using `fetch(..., { next: { revalidate: 300 } })`. Sheet columns: **A=Date, B=Donor name, C=Amount** (amount may include `$` and thousands commas — the parser handles both).
+- `lib/donations.ts` fetches a published Google Sheet CSV (`SHEET_URL` constant) using `fetch(..., { cache: "no-store" })`. Sheet columns: **A=Date, B=Donor name, C=Amount** (amount may include `$` and thousands commas — the parser handles both).
 - Result: `{ raised: number, donors: Donor[] }` where `Donor = { name, amount }`.
-- The page is statically generated with **5-minute ISR** — Vercel re-fetches the sheet in the background when a visitor hits the page after the window expires. There is no client-side sheet fetch and no API key.
+- The page is fully dynamic — `app/page.tsx` exports `revalidate = 0`, so Vercel renders server-side on every request and re-fetches the sheet. Donors see new contributions without a manual refresh. There is no client-side sheet fetch and no API key.
 - The sheet must be published to web as CSV (File → Share → Publish to web → CSV) for this URL to work. The editor URL won't.
 - `Funding.tsx` renders a marquee donor list that **only animates when `donors.length > 8`** (constant `SCROLL_THRESHOLD`). The marquee uses the `marquee-y` keyframes defined in `tailwind.config.ts`; duration scales with donor count via inline `animationDuration`. Pause-on-hover is via `group-hover:[animation-play-state:paused]`.
 
