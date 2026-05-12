@@ -8,6 +8,8 @@ import FAQ from "@/components/FAQ";
 import Highlights from "@/components/Highlights";
 import Footer from "@/components/Footer";
 
+export const revalidate = 0;
+
 export default function Page() {
   return (
     <main className="scroll-smooth">

@@ -57,7 +57,7 @@ export type DonationData = { raised: number; donors: Donor[] };
 
 export async function getDonationTotals(): Promise<DonationData> {
   try {
-    const res = await fetch(SHEET_URL, { next: { revalidate: 300 } });
+    const res = await fetch(SHEET_URL, { cache: "no-store" });
     if (!res.ok) return { raised: 0, donors: [] };
     const text = await res.text();
     const rows = parseCSV(text);
