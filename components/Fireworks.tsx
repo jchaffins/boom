@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { playBoom } from "@/lib/sounds";
 
 const COLORS = [
   "hsl(0, 85%, 60%)",
@@ -20,6 +21,7 @@ type Rocket = {
   exploded: boolean;
   particles: Particle[];
   trail: { x: number; y: number; alpha: number }[];
+  premium?: boolean;
 };
 
 type Particle = {
@@ -72,10 +74,15 @@ export default function Fireworks() {
 
     const explode = (r: Rocket) => {
       r.exploded = true;
-      const count = 40 + Math.floor(Math.random() * 30);
+      if (r.premium) playBoom();
+      const base = r.premium ? 80 : 40;
+      const extra = r.premium ? 50 : 30;
+      const count = base + Math.floor(Math.random() * extra);
+      const speedBoost = r.premium ? 1.3 : 1;
+      const sizeBoost = r.premium ? 0.6 : 0;
       for (let i = 0; i < count; i++) {
         const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
-        const speed = 1.5 + Math.random() * 3;
+        const speed = (1.5 + Math.random() * 3) * speedBoost;
         r.particles.push({
           x: r.x,
           y: r.y,
@@ -84,13 +91,29 @@ export default function Fireworks() {
           alpha: 1,
           decay: 0.008 + Math.random() * 0.012,
           color:
-            Math.random() > 0.3
+            Math.random() > (r.premium ? 0.5 : 0.3)
               ? r.color
               : COLORS[Math.floor(Math.random() * COLORS.length)],
-          size: 1 + Math.random() * 1.5,
+          size: 1 + Math.random() * 1.5 + sizeBoost,
         });
       }
     };
+
+    const onLaunch = () => {
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      rocketsRef.current.push({
+        x: w() * (0.3 + Math.random() * 0.4),
+        y: h(),
+        vy: -(4 + Math.random() * 2),
+        targetY: h() * (0.08 + Math.random() * 0.22),
+        color,
+        exploded: false,
+        particles: [],
+        trail: [],
+        premium: true,
+      });
+    };
+    window.addEventListener("fireworks:launch", onLaunch);
 
     const tick = (t: number) => {
       ctx.resetTransform();
@@ -148,6 +171,7 @@ export default function Fireworks() {
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("fireworks:launch", onLaunch);
     };
   }, []);
 

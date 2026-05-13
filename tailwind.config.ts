@@ -63,9 +63,14 @@ const config: Config = {
           "0%": { transform: "translateY(0)" },
           "100%": { transform: "translateY(-50%)" },
         },
+        twinkle: {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.9" },
+        },
       },
       animation: {
         "marquee-y": "marquee-y 40s linear infinite",
+        twinkle: "twinkle 4s ease-in-out infinite",
       },
     },
   },

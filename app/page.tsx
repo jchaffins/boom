@@ -7,12 +7,14 @@ import Funding from "@/components/Funding";
 import FAQ from "@/components/FAQ";
 import Highlights from "@/components/Highlights";
 import Footer from "@/components/Footer";
+import StickyNav from "@/components/StickyNav";
 
 export const revalidate = 0;
 
 export default function Page() {
   return (
     <main className="scroll-smooth">
+      <StickyNav />
       <Hero />
       <NeedToKnow />
       <Tradition />
